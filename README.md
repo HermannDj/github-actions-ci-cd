@@ -7,7 +7,7 @@ Ce dépôt contient des exemples de configurations CI/CD utilisant GitHub Action
 - 'src/': Contient le code source de l'application de demonstration.
 - 'tests/': Contient les tests automatisés.
 
-## Utilisaion
+## Utilisation
 
 1. Clonez ce dépôt :
    '''bash
