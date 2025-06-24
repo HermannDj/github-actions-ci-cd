@@ -1,0 +1,13 @@
+name: first-workflow
+run_name: ${{ github.actor}} is learning Github Action
+on: [push]
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: action/checkout@v4
+      - uses: action/setup-noode@v4
+        with:
+          node-version: '20'
+      - run: npm install -g bats
+      - run: bats -v
