@@ -1,5 +1,5 @@
 name: first-workflow
-run_name: ${{ github.actor}} is learning Github Action
+run-name: ${{ github.actor}} is learning Github Action
 on: [push]
 jobs:
   check-bats-version:
