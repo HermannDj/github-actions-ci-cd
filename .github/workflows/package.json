@@ -1,12 +1,15 @@
 {
-    "name": "simple-node-app",
-    "version": "1.0.0",
-    "description": "A simple Node.js application",
-    "main": "index.js",
-    "scripts": {
-        "test": "node test.js",
-        "build": "echo 'Building... Nothing to compile'"
-    },
-    "author": "",
-    "licence": "ISC"
+  "name": "simple-node-app",
+  "version": "1.0.0",
+  "description": "A simple Node.js application",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js",
+    "build": "echo 'Building... Nothing to compile'"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.3.0"
+  }
 }
