@@ -8,8 +8,5 @@
     "build": "echo 'Building... Nothing to compile'"
   },
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "chalk": "^5.3.0"
-  }
+  "license": "ISC"
 }
