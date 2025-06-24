@@ -1,0 +1,59 @@
+# Exemple de fichier YAML
+
+# Clés / Valeurs simple (Dictionnaire)
+cle1: valeur1
+cle2: valeur2
+
+# Listes
+liste_simple:
+  - element1
+  - element2
+  - element3
+
+
+# Types de Données dans YAML
+type_de_ donnees:
+  chaine: "Ceci est une chaine de caractères"
+  entier: 45
+  flottant: 3.14
+  boolean_vrai: true
+  boolean_false: false 
+  nul: null
+
+# Types de données numériques: entiers, hexadécimaux, octaux
+nombres:
+  entier_decimal: 1234
+  entier_hexadecimal: 0x4D2
+  entier_octal: 02322
+
+# Chaines, booleen, listes et nulls en YAML
+  divers:
+    chaine_multiligne: |
+      ceci est une chaine
+      qui s'etend sur
+      plusieurs lignes.
+    liste:
+      - item1
+      - item2
+    boolen: true
+    nul : null
+
+# Ancres et Alias
+ancres_et_alias:
+  &ancre_base
+  base:
+    nom: "Anass"
+    age: 29
+    ville: "Paris"
+  
+  copie_base: *ancre_base
+
+# Fusion de Dictionnaire
+fusion_dictionnaire:
+  base: &base
+    clé1: valeur1
+    clé2: valeur2
+
+  extensions: 
+    <<: *base
+    clé3: valeur3
