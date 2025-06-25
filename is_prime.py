@@ -12,7 +12,7 @@ def is_prime(n):
 
 
 if __name__ == "__main__":
-    number = int(sys.args[1])
+    number = int(sys.argv[1])
     if is_prime(number):
         print(f"{number} is a prime number.")
     else:
