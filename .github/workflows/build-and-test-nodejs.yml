@@ -2,13 +2,13 @@ name: Node.js Build and Test
 
 on:
   push:
-    branches: [main]
   pull_request:
-    branches: [main]
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    if: github.event_name == 'push' || github.event_name == 'pull_request'
     steps:
       - name: checkout code
         uses: actions/checkout@v4
@@ -26,6 +26,7 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
+    if: github.event_name == 'push' || github.event_name == 'pull_request'
     steps:
       - name: checkout code
         uses: actions/checkout@v4
@@ -40,3 +41,21 @@ jobs:
 
       - name: Run tests
         run: npm run test
+
+  deploy:
+    runs-on: ubuntu-latest
+    if: (github.event_name == 'push' && github.ref == 'refs/heads/main') ||  github.event_name == 'workflow_dispatch'
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: install dependencies
+        run: npm install
+
+      - name: Deploy
+        run: npm run deploy
