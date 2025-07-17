@@ -1,14 +1,18 @@
 name: Node.js Build and Test
 
 on:
-  push:
   pull_request:
-  workflow_dispatch:
+    types: 
+      - opened
+      - reopened
+    branches:
+      - 'release/**'
+    paths:
+      - '**.js'
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: contains(fromJSON('["push", "pull_request"]'), github.event_name)
     steps:
       - name: checkout code
         uses: actions/checkout@v4
@@ -26,7 +30,6 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-    if: contains(fromJSON('["push", "pull_request"]'), github.event_name)
     steps:
       - name: checkout code
         uses: actions/checkout@v4
@@ -41,25 +44,3 @@ jobs:
 
       - name: Run tests
         run: npm run test
-
-  deploy:
-    runs-on: ubuntu-latest
-    if: (github.event_name == 'push' && github.ref == 'refs/heads/main') ||  github.event_name == 'workflow_dispatch'
-    steps:
-      - name: checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: install dependencies
-        run: npm install
-
-      - name: Deploy
-        run: npm run deploy
-
-      - name: Run if deploy was successful
-        if:  ${{failure()}}
-        run: echo "Deployment failed, skipping post-deployment steps"
