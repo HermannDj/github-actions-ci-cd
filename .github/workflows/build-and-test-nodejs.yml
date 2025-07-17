@@ -61,5 +61,5 @@ jobs:
         run: npm run deploy
 
       - name: Run if deploy was successful
-        if:  ${{success()}}
-        run: echo "Deployment successful!"
+        if:  ${{failure()}}
+        run: echo "Deployment failed, skipping post-deployment steps"
