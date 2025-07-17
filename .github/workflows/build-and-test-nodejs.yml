@@ -9,7 +9,10 @@ on:
       - 'release/**'
     paths:
       - '**.js'
-
+  workflow_run:
+    workflows: ["Python Script Execution"]
+    types: 
+      - completed
 jobs:
   build:
     runs-on: ubuntu-latest
