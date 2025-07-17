@@ -10,15 +10,18 @@ on:
           - info
           - warning
           - debug
-        tags: 
-          description: 'Test scenario for workflow dispatch'
-          required: false
-          type: boolean
-        environment:
-          name: 'Test Environment'
-          type: environment
-          required: true
-
+      tags: 
+        description: 'Test scenario for workflow dispatch'
+        required: false
+        type: boolean
+      environment:
+        description: 'Test Environment'
+        type: choice
+        options:
+          - staging
+          - preprod
+          - prod
+        required: true
 
 jobs:
   log-the-inputs:
