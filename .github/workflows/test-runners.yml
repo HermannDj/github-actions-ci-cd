@@ -23,7 +23,7 @@ jobs:
 
   # Job 3: Execute sur un runner auto-hébergé (ubuntu)
   self-hosted-linux-job:
-    runs-on: [self-hosted, linux, x64, ubuntu]
+    runs-on: [self-hosted, Linux, X64, ubuntu]
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
