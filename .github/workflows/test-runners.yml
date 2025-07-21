@@ -1,8 +1,7 @@
 name: Multi_Runner Workflow example
 on: [push]
 
-
-Jobs:
+jobs:
   # Job 1: Execute sur un runner hebergé par GitHub (ubuntu)
   ubuntu-job:
     runs-on: ubuntu-latest
