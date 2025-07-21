@@ -1,0 +1,33 @@
+name: Multi_Runner Workflow example
+on: [push]
+
+
+Jobs:
+  # Job 1: Execute sur un runner hebergé par GitHub (ubuntu)
+  ubuntu-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Run on Ubuntu
+        run: echo "Running on Ubuntu"
+
+
+  # Job 2: Execute sur un runner herbergé par GitHub (windows)
+  windows-job:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Run on Windows
+        run: echo "Running on Windows"
+
+  # Job 3: Execute sur un runner auto-hébergé (ubuntu)
+  self-hosted-linux-job:
+    runs-on: [self-hosted, linux, x64, ubuntu]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Run on Self-Hosted Linux
+        run: echo "Running on Self-Hosted Linux"
+  
