@@ -17,7 +17,9 @@ jobs:
 
             - name: Download artifact
               uses: actions/download-artifact@v4
-              with: 
+              with:
+                workflows: ${{ github.event.workflow_run.workflow_id}}
+                workflow_conclusion: success
                 name: my-artifact
 
             - name: Display artifact content
