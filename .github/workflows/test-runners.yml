@@ -1,4 +1,4 @@
-name: Multi_Runner Workflow example
+name: Multi-Runner Workflow example
 on: [push]
 
 jobs:
